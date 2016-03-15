@@ -1,0 +1,19 @@
+{
+  "uuid": "83b6ce9c-e9a8-4a4b-b087-8c2981db4c4a",
+  "shortName": "One-Fifty",
+  "longName": "One-Fifty",
+  "companyName": "Austin Hartzheim",
+  "versionLabel": "0.1",
+  "sdkVersion": "3",
+  "targetPlatforms": ["basalt", "chalk"],
+  "enableMultiJS": true,
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
