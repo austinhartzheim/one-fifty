@@ -33,14 +33,20 @@ static void click_config_provider(void *context) {
 }
 
 static void health_handler(HealthEventType event, void *context) {
-  switch (view_mode) {
-  case MODE_WEEK:
-    show_data_week();
-    break;
-  case MODE_TODAY:
+  switch(event) {
+  case HealthEventSignificantUpdate:
+  case HealthEventMovementUpdate:
+    switch (view_mode) {
+    case MODE_WEEK:
+      show_data_week();
+      break;
+    case MODE_TODAY:
+    default:
+      view_mode = MODE_TODAY;
+      show_data_today();
+    }
   default:
-    view_mode = MODE_TODAY;
-    show_data_today();
+    break;
   }
   /*  switch(event) {
   case HealthEventSignificantUpdate:
@@ -79,6 +85,7 @@ static void init(void) {
     APP_LOG(APP_LOG_LEVEL_ERROR, "Health not available!");
   }
 
+  // Refresh data in display
   show_data_today();
 }
 
